@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug mapbox-directions-swift",
+            "program": "${workspaceFolder:mapbox-directions-swift}/.build/debug/mapbox-directions-swift",
+            "args": [],
+            "cwd": "${workspaceFolder:mapbox-directions-swift}",
+            "preLaunchTask": "swift: Build Debug mapbox-directions-swift"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Release mapbox-directions-swift",
+            "program": "${workspaceFolder:mapbox-directions-swift}/.build/release/mapbox-directions-swift",
+            "args": [],
+            "cwd": "${workspaceFolder:mapbox-directions-swift}",
+            "preLaunchTask": "swift: Build Release mapbox-directions-swift"
+        }
+    ]
+}

@@ -84,18 +84,15 @@ jobs:
             carthage bootstrap --platform all --use-netrc --use-xcframeworks
   example-app-build:
     macos:
-      xcode: "12.4.0"
+      xcode: "13.3.0"
     environment:
       HOMEBREW_NO_AUTO_UPDATE: 1
     steps:
       - checkout
       - install-mapbox-token
-      - install-carthage
-      - restore-cache
-      - carthage-bootstrap
       - run:
           name: "Build example app"
-          command: xcodebuild -sdk iphonesimulator -project MapboxDirections.xcodeproj -scheme 'Example' -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 12 Pro Max' clean build
+          command: xcodebuild -sdk iphonesimulator -project DirectionsPlayground/DirectionsPlayground.xcodeproj -scheme 'DirectionsPlayground' -destination 'platform=iOS Simulator,OS=15.4,name=iPhone 13 Pro Max' clean build
       - save-cache
 
   build-job:
