@@ -10,6 +10,8 @@
 * Added the `RouteOptions.maximumHeight` and `RouteOptions.maximumWidth` properties for ensuring that the resulting routes can accommodate a vehicle of a certain size. ([#623](https://github.com/mapbox/mapbox-directions-swift/pull/623))
 * The `DirectionsPriority` struct now conforms to the `Codable` protocol. ([#623](https://github.com/mapbox/mapbox-directions-swift/pull/623))
 * Fixed an issue where the `RouteOptions.alleyPriority`, `RouteOptions.walkwayPriority`, and `RouteOptions.speed` properties were excluded from the encoded representation of a `RouteOptions` object. ([#623](https://github.com/mapbox/mapbox-directions-swift/pull/623))
+* Added `Matrix` API wrapper. The [Mapbox Matrix API](https://docs.mapbox.com/api/navigation/matrix/) computes travel times between manny points, and returns a matrix of all travel times between the locations. 
+< TODO: INCLUDE LINK TO PR >
 
 ## v2.0.0
 
