@@ -11,10 +11,10 @@ public class MatrixOptions: Codeable {
     /**
      Initializes a matrix options object for matrices and a given profile identifier.
      
-     - parameter coordinates: An array of `LocationCoordinate2D` objects representing locations that will be in the matrix. The array should contain at least X coordinates and at most X coordinates. (Some profiles, such as `DirectionsProfileIdentifier.automobileAvoidingTraffic`, [may have lower limits](https://docs.mapbox.com/api/navigation/matrix/#matrix-api-restrictions-and-limits).)
+     - parameter coordinates: An array of `Waypoints` objects representing locations that will be in the matrix. The array should contain at least X coordinates and at most X coordinates. (Some profiles, such as `DirectionsProfileIdentifier.automobileAvoidingTraffic`, [may have lower limits](https://docs.mapbox.com/api/navigation/matrix/#matrix-api-restrictions-and-limits).)
      - parameter profileIdentifier: A string specifying the primary mode of transportation for the routes.
      */
-    public init(coordinates: [LocationCoordinate2D], profileIdentifier: DirectionsProfileIdentifier) {
+    public init(coordinates: [Waypoints], profileIdentifier: DirectionsProfileIdentifier) {
         self.coordinates = coordinates
         self.profileIdentifier = profileIdentifier
     }
@@ -24,9 +24,13 @@ public class MatrixOptions: Codeable {
      */
     public enum SideOfRoad {
         /**
-         
+         The route can arrive at the waypoint from either side of the road.
          */
         case unrestricted
+        
+        /**
+         The route will arrive at the waypoint on the driving side of the region.
+         */
         case curb
     }
     
@@ -38,7 +42,7 @@ public class MatrixOptions: Codeable {
     /**
      An array of `LocationCoordinate2D` objects representing locations that will be in the matrix.
      */
-    public var coordinates: [LocationCoordinate2D]
+    public var coordinates: [Waypoints]
     
     /**
      AttributeOptions for the matrix. Only `AttributeOptions.distance` and `AttributeOptions.expectedTravelTime` can be specified.
@@ -49,15 +53,25 @@ public class MatrixOptions: Codeable {
     public var attributeOptions: AttributeOptions?
     
     /**
-     The side of the road from which to approach waypoints in the requested route.
+     The side of the road from which to approach waypoints in the requested route. The array must include a `SideOfRoad` for each coordinate.
+     
+     By default, `SideOfRoad.unrestricted` is specified for all waypoints.
      */
-    // TODO: Include default
-    // Shoul
     public var approachSides: [SideOfRoad]?
     
-    // TODO: How to handle index vs .all values? default to .all
-    public var destinations: [Int]? = []
-    public var sources: [Int]? = []
+    /**
+     The coordinates at a given index in the `coordinates` array that should be used as destinations.
+     
+     By default, all waypoints in the `coordinates` array are used as destinations.
+     */
+    public var destinations: [Int]?
+    
+    /**
+     The coordinates at a given index in the `coordinates` array that should be used as sources.
+     
+     By default, all waypoints in the `coordinates` array are used as sources.
+     */
+    public var sources: [Int]?
     
     
     private enum CodingKeys: String, CodingKey {
@@ -81,7 +95,7 @@ public class MatrixOptions: Codeable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        coordinates = try container.decode([LocationCoordinate2D].self, forKey: .coordinates)
+        coordinates = try container.decode([Waypoints].self, forKey: .coordinates)
         profileIdentifier = try container.decode(ProfileIdentifier.self, forKey: .profileIdentifier)
         attributeOptions = try container.decodeIfPresent(AttributeOptions.self, forKey: .attributeOptions)
         approachSides = try container.decodeIfPresent([SideOfRoad].self, forKey: .approachSides)
@@ -109,6 +123,7 @@ public class MatrixOptions: Codeable {
     /**
      An array of URL query items (parameters) to include in an HTTP request.
      */
+    // TODO: Fix appended query items formatting!
     public var urlQueryItems: [URLQueryItem] {
         var queryItems: [URLQueryItem] = []
         
