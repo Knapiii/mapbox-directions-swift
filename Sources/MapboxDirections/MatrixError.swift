@@ -67,5 +67,5 @@ public enum MatrixError: LocalizedError {
     /**
      Unknown error case. Look at associated values for more details.
      */
-    case unknown(response: URLResponse?, underlying: Error?, code: String?, message: String?890iuo)
+    case unknown(response: URLResponse?, underlying: Error?, code: String?, message: String?)
 }
