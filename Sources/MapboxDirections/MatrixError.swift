@@ -11,7 +11,6 @@ public enum MatrixError: LocalizedError {
     public init(code: String?, message: String?, response: URLResponse?, underlyingError error: Error?) {
         if let response = response as? HTTPURLResponse {
             switch (response.statusCode, code ?? "") {
-            // TODO: What are the error codes for network and rate limiting?
             case (200, "NoRoute"):
                 self = .noRoute
             case (404, "ProfileNotFound"):
@@ -30,6 +29,16 @@ public enum MatrixError: LocalizedError {
      There is no network connection available to perform the network request.
      */
     case network(_: URLError)
+    
+    /**
+     The server returned a response that isn’t correctly formatted.
+     */
+    case invalidResponse(_: URLResponse?)
+    
+    /**
+     The server returned an empty response.
+     */
+    case noData
     
     /**
      The API did not find a route for the given coordinates. Check for impossible routes or incorrectly formatted coordinates.

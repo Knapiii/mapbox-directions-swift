@@ -3,10 +3,7 @@ import Foundation
 import FoundationNetworking
 #endif
 
-// TODO: HANDLE ACTUAL CALL HERE
-
 open class Matrix {
-    
     /**
      A tuple type representing the matrix session that was generated from the request.
      
@@ -24,7 +21,7 @@ open class Matrix {
      - parameter result: A `Result` enum that represents the (RETURN TYPE) if the request returned successfully, or the error if it did not.
      */
     // TODO: GET RETURN TYPE SORTED OUT AND UPDATE THIS COMPLETION HANDLER
-    public typealias MatrixCompletionHandler = (_ session: Session, _ result: Result<____, MatrixError>) -> Void
+    public typealias MatrixCompletionHandler = (_ session: Session, _ result: Result<MatrixResponse, MatrixError>) -> Void
     
     // MARK: Creating an Matrix Object
     public let credentials = DirectionsCredentials
@@ -54,7 +51,6 @@ open class Matrix {
     }
     
     // MARK: Getting Matrix
-    // TODO: Calculate matrices here!
     /**
      Begins asynchronously calculating matrices using the given options and delivers the results to a closure.
      
@@ -83,7 +79,6 @@ open class Matrix {
                 return
             }
             
-            // TODO: CHECK THIS ERROR
             guard let data = possibleData else {
                 DispatchQueue.main.async {
                     completionHandler(session, .failure(.noData))
@@ -116,8 +111,7 @@ open class Matrix {
                         return
                     }
                     
-                    // TODO: GET RETURN TYPE SORTED OUT AND UPDATE THIS
-                    let result = try decoder.decode(<#T##type: Decodable.Protocol##Decodable.Protocol#>, from: data)
+                    let result = try decoder.decode(MatrixResponse.self, from: data)
                     
                     // TODO: Check for nil values?
                     
