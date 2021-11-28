@@ -169,11 +169,21 @@
 		AEDC212120B6125C0052DED8 /* VisualInstructionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC211C20B6104A0052DED8 /* VisualInstructionComponent.swift */; };
 		AEDC212220B6125D0052DED8 /* VisualInstructionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC211C20B6104A0052DED8 /* VisualInstructionComponent.swift */; };
 		AEDC212320B6125E0052DED8 /* VisualInstructionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC211C20B6104A0052DED8 /* VisualInstructionComponent.swift */; };
-		C30AB24D27341A6800DC2017 /* MatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB24C27341A6800DC2017 /* MatrixTests.swift */; };
-		C30AB24F27341A9F00DC2017 /* MatrixError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB24E27341A9F00DC2017 /* MatrixError.swift */; };
-		C30AB25127341AB900DC2017 /* MatrixOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB25027341AB900DC2017 /* MatrixOptions.swift */; };
-		C30AB25327341AE300DC2017 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB25227341AE300DC2017 /* Matrix.swift */; };
-		C30AB255273986D900DC2017 /* MatrixResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB254273986D900DC2017 /* MatrixResponse.swift */; };
+		C34502CE27541CEC005FE26F /* MatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB24C27341A6800DC2017 /* MatrixTests.swift */; };
+		C34502CF27541CED005FE26F /* MatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB24C27341A6800DC2017 /* MatrixTests.swift */; };
+		C34502D027541CEF005FE26F /* MatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB24C27341A6800DC2017 /* MatrixTests.swift */; };
+		C34502D127541D18005FE26F /* MatrixError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB24E27341A9F00DC2017 /* MatrixError.swift */; };
+		C34502D227541D19005FE26F /* MatrixError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB24E27341A9F00DC2017 /* MatrixError.swift */; };
+		C34502D327541D1A005FE26F /* MatrixError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB24E27341A9F00DC2017 /* MatrixError.swift */; };
+		C34502D427541D1E005FE26F /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB25227341AE300DC2017 /* Matrix.swift */; };
+		C34502D527541D1F005FE26F /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB25227341AE300DC2017 /* Matrix.swift */; };
+		C34502D627541D20005FE26F /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB25227341AE300DC2017 /* Matrix.swift */; };
+		C34502D727541D23005FE26F /* MatrixOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB25027341AB900DC2017 /* MatrixOptions.swift */; };
+		C34502D827541D24005FE26F /* MatrixOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB25027341AB900DC2017 /* MatrixOptions.swift */; };
+		C34502D927541D25005FE26F /* MatrixOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB25027341AB900DC2017 /* MatrixOptions.swift */; };
+		C34502DA27541D28005FE26F /* MatrixResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB254273986D900DC2017 /* MatrixResponse.swift */; };
+		C34502DB27541D29005FE26F /* MatrixResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB254273986D900DC2017 /* MatrixResponse.swift */; };
+		C34502DC27541D2A005FE26F /* MatrixResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AB254273986D900DC2017 /* MatrixResponse.swift */; };
 		C51538CC1E807FF00093FF3E /* AttributeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51538CB1E807FF00093FF3E /* AttributeOptions.swift */; };
 		C5247D711E818A24004B6154 /* AnnotationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5247D701E818A24004B6154 /* AnnotationTests.swift */; };
 		C52552B91FA15D5900B1545C /* VisualInstructionBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52552B81FA15D5900B1545C /* VisualInstructionBanner.swift */; };
@@ -1417,19 +1427,23 @@
 				2B9F3882272AE23A001DBA12 /* ProfileIdentifier.swift in Sources */,
 				431E93CC23466C2500A71B44 /* RouteResponse.swift in Sources */,
 				431E93C423466B0F00A71B44 /* GeoJSON.swift in Sources */,
+				C34502D527541D1F005FE26F /* Matrix.swift in Sources */,
 				C5990B4A2045E72800D7DFD4 /* DirectionsResult.swift in Sources */,
 				35EFD00C207DFACA00BF3873 /* VisualInstruction.swift in Sources */,
 				C584E3F71F201C7B00BBC9BB /* RoadClasses.swift in Sources */,
 				C5DAACA220195AB2001F9261 /* MatchOptions.swift in Sources */,
 				43D6617123DBA58E0062BFFE /* (null) in Sources */,
+				C34502DB27541D29005FE26F /* MatrixResponse.swift in Sources */,
 				2B5407F8245302AB006C820B /* RouteLegAttributes.swift in Sources */,
 				DA1A10CC1D00F969009F82FA /* Waypoint.swift in Sources */,
 				DAD06E3D23A00A01001A917D /* QuickLook.swift in Sources */,
 				DA1A10CA1D00F969009F82FA /* RouteOptions.swift in Sources */,
+				C34502D227541D19005FE26F /* MatrixError.swift in Sources */,
 				DA1A10C81D00F969009F82FA /* Route.swift in Sources */,
 				2B5407F32452FA8C006C820B /* RefreshedRoute.swift in Sources */,
 				431E93D023466D7500A71B44 /* Codable.swift in Sources */,
 				C5990B4D2045E74800D7DFD4 /* DirectionsOptions.swift in Sources */,
+				C34502D827541D24005FE26F /* MatrixOptions.swift in Sources */,
 				43EBD3AE23DBC06800B09D05 /* DirectionsCredentials.swift in Sources */,
 				DAA76D691DD127CB0015EC78 /* LaneIndication.swift in Sources */,
 				2B9F388E272AE23A001DBA12 /* Credentials.swift in Sources */,
@@ -1470,6 +1484,7 @@
 				4376A52823FB13D400C6038D /* MatchOptionsTests.swift in Sources */,
 				DA688B3F21B89ECD00C9BB25 /* VisualInstructionComponentTests.swift in Sources */,
 				2B9F389B272AE28D001DBA12 /* IsochroneTests.swift in Sources */,
+				C34502CF27541CED005FE26F /* MatrixTests.swift in Sources */,
 				DAD06E36239F0B19001A917D /* DirectionsErrorTests.swift in Sources */,
 				C596663A2048AECD00C45CE5 /* RoutableMatchTests.swift in Sources */,
 				DA8F3A7323B56D3B00B56786 /* RouteLegTests.swift in Sources */,
@@ -1510,19 +1525,23 @@
 				2B9F3883272AE23A001DBA12 /* ProfileIdentifier.swift in Sources */,
 				431E93CD23466C2700A71B44 /* RouteResponse.swift in Sources */,
 				431E93C523466B1000A71B44 /* GeoJSON.swift in Sources */,
+				C34502D627541D20005FE26F /* Matrix.swift in Sources */,
 				C5990B4B2045E72900D7DFD4 /* DirectionsResult.swift in Sources */,
 				35EFD00D207DFACA00BF3873 /* VisualInstruction.swift in Sources */,
 				C584E3F81F201C7C00BBC9BB /* RoadClasses.swift in Sources */,
 				C5DAACA320195AB2001F9261 /* MatchOptions.swift in Sources */,
 				43D6617223DBA58E0062BFFE /* (null) in Sources */,
+				C34502DC27541D2A005FE26F /* MatrixResponse.swift in Sources */,
 				2B5407F9245302AB006C820B /* RouteLegAttributes.swift in Sources */,
 				DA1A10F21D010247009F82FA /* Waypoint.swift in Sources */,
 				DAD06E3E23A00A02001A917D /* QuickLook.swift in Sources */,
 				DA1A10F01D010247009F82FA /* RouteOptions.swift in Sources */,
+				C34502D327541D1A005FE26F /* MatrixError.swift in Sources */,
 				DA1A10EE1D010247009F82FA /* Route.swift in Sources */,
 				2B5407F42452FA8C006C820B /* RefreshedRoute.swift in Sources */,
 				431E93D123466D7600A71B44 /* Codable.swift in Sources */,
 				C5990B4E2045E74900D7DFD4 /* DirectionsOptions.swift in Sources */,
+				C34502D927541D25005FE26F /* MatrixOptions.swift in Sources */,
 				43EBD3AF23DBC06800B09D05 /* DirectionsCredentials.swift in Sources */,
 				DAA76D6A1DD127CB0015EC78 /* LaneIndication.swift in Sources */,
 				2B9F388F272AE23A001DBA12 /* Credentials.swift in Sources */,
@@ -1563,6 +1582,7 @@
 				4376A52923FB13D400C6038D /* MatchOptionsTests.swift in Sources */,
 				DA688B4021B89ECD00C9BB25 /* VisualInstructionComponentTests.swift in Sources */,
 				2B9F389C272AE28E001DBA12 /* IsochroneTests.swift in Sources */,
+				C34502D027541CEF005FE26F /* MatrixTests.swift in Sources */,
 				DAD06E37239F0B19001A917D /* DirectionsErrorTests.swift in Sources */,
 				C596663B2048AECE00C45CE5 /* RoutableMatchTests.swift in Sources */,
 				DA8F3A7423B56D3B00B56786 /* RouteLegTests.swift in Sources */,
@@ -1663,19 +1683,23 @@
 				2B9F3881272AE23A001DBA12 /* ProfileIdentifier.swift in Sources */,
 				431E93CB23466C2400A71B44 /* RouteResponse.swift in Sources */,
 				431E93C323466B0E00A71B44 /* GeoJSON.swift in Sources */,
+				C34502D427541D1E005FE26F /* Matrix.swift in Sources */,
 				35EFD00B207DFACA00BF3873 /* VisualInstruction.swift in Sources */,
 				DAC05F161CFBFAC400FA0071 /* Waypoint.swift in Sources */,
 				C57D55081DB58C0200B94B74 /* Lane.swift in Sources */,
 				DAC05F181CFC075300FA0071 /* Route.swift in Sources */,
 				43D6617023DBA58E0062BFFE /* (null) in Sources */,
+				C34502DA27541D28005FE26F /* MatrixResponse.swift in Sources */,
 				2B5407F7245302AB006C820B /* RouteLegAttributes.swift in Sources */,
 				C59094BF203B800300EB2417 /* DirectionsOptions.swift in Sources */,
 				DAD06E3C23A00A01001A917D /* QuickLook.swift in Sources */,
 				C5434B8C200695A50069E887 /* MatchOptions.swift in Sources */,
+				C34502D127541D18005FE26F /* MatrixError.swift in Sources */,
 				DAA76D681DD127CB0015EC78 /* LaneIndication.swift in Sources */,
 				2B5407F22452FA8C006C820B /* RefreshedRoute.swift in Sources */,
 				431E93CF23466D7400A71B44 /* Codable.swift in Sources */,
 				C59094C1203DE6BC00EB2417 /* DirectionsResult.swift in Sources */,
+				C34502D727541D23005FE26F /* MatrixOptions.swift in Sources */,
 				43EBD3AD23DBC06800B09D05 /* DirectionsCredentials.swift in Sources */,
 				DAC05F1A1CFC077C00FA0071 /* RouteLeg.swift in Sources */,
 				2B9F388D272AE23A001DBA12 /* Credentials.swift in Sources */,
@@ -1715,6 +1739,7 @@
 				C5247D711E818A24004B6154 /* AnnotationTests.swift in Sources */,
 				4376A52723FB13D400C6038D /* MatchOptionsTests.swift in Sources */,
 				DA688B3E21B89ECD00C9BB25 /* VisualInstructionComponentTests.swift in Sources */,
+				C34502CE27541CEC005FE26F /* MatrixTests.swift in Sources */,
 				2B9F389A272AE28B001DBA12 /* IsochroneTests.swift in Sources */,
 				DAD06E35239F0B19001A917D /* DirectionsErrorTests.swift in Sources */,
 				C59666392048A20E00C45CE5 /* RoutableMatchTests.swift in Sources */,
@@ -1741,13 +1766,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C30AB24D27341A6800DC2017 /* MatrixTests.swift in Sources */,
-				C30AB255273986D900DC2017 /* MatrixResponse.swift in Sources */,
 				DADD27B81E5AAAD800D31FAD /* AppDelegate.swift in Sources */,
-				C30AB25327341AE300DC2017 /* Matrix.swift in Sources */,
-				C30AB25127341AB900DC2017 /* MatrixOptions.swift in Sources */,
 				E28E325826662B1E0030807F /* ContentView.swift in Sources */,
-				C30AB24F27341A9F00DC2017 /* MatrixError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

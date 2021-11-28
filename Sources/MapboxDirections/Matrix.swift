@@ -3,6 +3,10 @@ import Foundation
 import FoundationNetworking
 #endif
 
+
+/**
+ Computes distances and durations between origin-destination pairs, and returns the resulting distances in meters and durations in seconds.
+ */
 open class Matrix {
     /**
      A tuple type representing the matrix session that was generated from the request.
@@ -11,7 +15,7 @@ open class Matrix {
      
      - parameter credentials: A object containing the credentials used to make the request.
      */
-    public typealias Session = (options: MatrixOptions, credentials: DirectionsCredentials)
+    public typealias Session = (options: MatrixOptions, credentials: Credentials)
     
     /**
      A closure (block) to be called when a matrix request is complete.
@@ -20,11 +24,10 @@ open class Matrix {
      
      - parameter result: A `Result` enum that represents the (RETURN TYPE) if the request returned successfully, or the error if it did not.
      */
-    // TODO: GET RETURN TYPE SORTED OUT AND UPDATE THIS COMPLETION HANDLER
     public typealias MatrixCompletionHandler = (_ session: Session, _ result: Result<MatrixResponse, MatrixError>) -> Void
     
     // MARK: Creating an Matrix Object
-    public let credentials = DirectionsCredentials
+    public let credentials: Credentials
     private let urlSession: URLSession
     private let processingQueue: DispatchQueue
     
@@ -42,7 +45,7 @@ open class Matrix {
        - urlSession: URLSession that will be used to submit API requests to Mapbox Matrix API.
        - processingQueue: A DispatchQueue that will be used for CPU intensive work.
      */
-    public init(credentials: DirectionsCredentials = .init(),
+    public init(credentials: Credentials = .init(),
                 urlSession: URLSession = .shared,
                 processingQueue: DispatchQueue = .global(qos: .userInitiated)) {
         self.credentials = credentials
@@ -83,6 +86,7 @@ open class Matrix {
                 DispatchQueue.main.async {
                     completionHandler(session, .failure(.noData))
                 }
+                return
             }
             
             self.processingQueue.async {
@@ -102,7 +106,7 @@ open class Matrix {
                         return
                     }
                     
-                    guard let (disposition.code == nil && disposition.message == nil) || disposition.code == "Ok" else {
+                    guard (disposition.code == nil && disposition.message == nil) || disposition.code == "Ok" else {
                         let apiError = MatrixError(code: disposition.code, message: disposition.message, response: response, underlyingError: possibleError)
                         
                         DispatchQueue.main.async {
@@ -113,7 +117,12 @@ open class Matrix {
                     
                     let result = try decoder.decode(MatrixResponse.self, from: data)
                     
-                    // TODO: Check for nil values?
+                    guard result.distances != nil || result.durations != nil else {
+                        DispatchQueue.main.async {
+                            completionHandler(session, .failure(.noRoute))
+                        }
+                        return
+                    }
                     
                     DispatchQueue.main.async {
                         completionHandler(session, .success(result))

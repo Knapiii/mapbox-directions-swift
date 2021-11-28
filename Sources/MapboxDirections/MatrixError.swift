@@ -17,6 +17,8 @@ public enum MatrixError: LocalizedError {
                 self = .profileNotFound
             case (422, "InvalidInput"):
                 self = .invalidInput(message: message)
+            case (429, _):
+                self = .rateLimited(rateLimitInterval: response.rateLimitInterval, rateLimit: response.rateLimit, resetTime: response.rateLimitResetTime)
             default:
                 self = .unknown(response: response, underlying: error, code: code, message: message)
             }
@@ -53,7 +55,9 @@ public enum MatrixError: LocalizedError {
     case profileNotFound
     
     /**
-    The API recieved input that it didn't understand.
+     The API recieved input that it didn't understand.
+     
+     Make sure the number of approach elements matches the number of waypoints provided, and the number of waypoints does not exceed the maximum number per request.
      */
     case invalidInput(message: String?)
     
