@@ -13,6 +13,7 @@ import Turf
 
 let MatrixBogusCredentials = Credentials(accessToken: BogusToken)
 
+#if !os(Linux)
 class MatrixTests: XCTestCase {
     override func tearDown() {
         #if !os(Linux)
@@ -27,7 +28,6 @@ class MatrixTests: XCTestCase {
     }
     
     func testRequest() {
-        
         let waypoints = [
             Waypoint(coordinate: CLLocationCoordinate2D(latitude: 37.751668, longitude: -122.418408), name: "Mission Street"),
             Waypoint(coordinate: CLLocationCoordinate2D(latitude: 37.755184, longitude: -122.422959), name: "22nd Street"),
@@ -40,7 +40,7 @@ class MatrixTests: XCTestCase {
         options.attributeOptions = [.distance, .expectedTravelTime]
 
         let matrices = Matrix(credentials: MatrixBogusCredentials)
-        var url = matrices.url(forCalculating: options)
+        let url = matrices.url(forCalculating: options)
         let request = matrices.urlRequest(forCalculating: options)
 
         guard let components = URLComponents(string: url.absoluteString),
@@ -143,3 +143,4 @@ class MatrixTests: XCTestCase {
         }
     }
 }
+#endif
