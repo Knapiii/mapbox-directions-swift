@@ -1,5 +1,22 @@
 # Changes to Mapbox Directions for Swift
 
+## v2.4.0
+
+* Fixed a crash that occurred when `RouteOptions.roadClassesToAvoid` or `RouteOptions.roadClassesToAllow` properties contained multiple road classes.
+* `RoadClasses.tunnel` and `RoadClasses.restricted` are no longer supported in `RouteOptions.roadClassesToAvoid` or `RouteOptions.roadClassesToAllow` properties
+* Added `DirectionsOptions(url:)`, `RouteOptions(url:)` and extended existing `DirectionsOptions(waypoints:profileIdentifier:queryItems:)`, `RouteOptions(waypoints:profileIdentifier:queryItems:)`, `MatchOptions(waypoints:profileIdentifier:queryItems:)` and related convenience init methods for deserializing corresponding options object using appropriate request URL or it's query items. ([#655](https://github.com/mapbox/mapbox-directions-swift/pull/655))
+
+## v2.3.0
+
+* Added `VisualInstruction.Component.ShieldRepresentation` struct and the `VisualInstruction.Component.ImageRepresentation.shield` property containing metadata for displaying a highway shield consistent with map styles used by the Mapbox Maps SDK. ([#644](https://github.com/mapbox/mapbox-directions-swift/pull/644), [#647](https://github.com/mapbox/mapbox-directions-swift/pull/647))
+* Added a `RouteLeg.viaWaypoints` property that lists the non-leg-separating waypoints (also known as “silent waypoints”) along a `RouteLeg`. Previously, you had to filter `DirectionsOptions.waypoints` to include only the items whose `Waypoints.separatesLegs` property was set to `true`, then zip them with `RouteResponse.routes`. This approach still works in some cases but is not guaranteed to be reliable for all Mapbox Directions API responses in the future. ([#656](https://github.com/mapbox/mapbox-directions-swift/pull/656))
+
+## v2.2.0
+
+* Added the `RouteResponse.roadClassViolations` property, which indicates any requested `RouteOptions.roadClassesToAvoid` values that could not be satisfied when calculating the routes. You can use convenience `RouteResponse.exclusionViolations(routeIndex:legIndex:stepIndex:intersectionIndex:)` method to search for a specific item. ([#627](https://github.com/mapbox/mapbox-directions-swift/pull/627))
+* Fixed an issue where `PolyLineString` encoded an invalid GeoJSON LineString. ([#638](https://github.com/mapbox/mapbox-directions-swift/pull/638))
+* Added `RouteRefreshSource` protocol to allow refreshing `Route` objects with `RefreshedRoute` or another `Route` instance. ([#634](https://github.com/mapbox/mapbox-directions-swift/pull/634))
+
 ## v2.1.0
 
 * Added the `Waypoint.snappedDistance` property to get the straight-line distance from the waypoint to the location it was snapped to in the `RouteResponse`. ([#616](https://github.com/mapbox/mapbox-directions-swift/pull/616))
